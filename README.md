@@ -67,7 +67,7 @@ Botão externo que atua como o disparador (trigger) para abrir a interface do ch
 ## Modelo do CSS
 O visual do chat é construído com foco em usabilidade e uma paleta de cores baseada no vermelho e branco do mackenzie.
 
-```
+```css
 * {
     padding: 0;
     margin: 0;
@@ -85,7 +85,7 @@ body {
 **body:** Define a fonte padrão, uma imagem de fundo para a página e a cor base do texto.
 
 
-```
+```css
 /* ===== Botão Flutuante ===== */
 #button {
   position: fixed;
@@ -122,7 +122,7 @@ body {
 **Interatividade:** Possui um efeito de hover que aumenta levemente o tamanho (scale) e escurece a cor ao passar o mouse.
 
 
-```
+```css
 main {
   position: fixed;
   bottom: 100px;
@@ -142,7 +142,7 @@ main {
 **Efeito:** Possui bordas arredondadas e uma sombra intensa para dar profundidade (efeito de janela sobreposta).
 
 
-```
+```css
 /* ===== Cabeçalho ===== */
 header {
   background-color: #d32f2f;
@@ -170,7 +170,7 @@ header {
 
 **#close:** Posicionado de forma absoluta dentro do cabeçalho para atuar como o botão de saída.
 
-```
+```css
 /* ===== Área do Chat ===== */
 section {
   flex: 1;
@@ -211,7 +211,7 @@ section {
 **.message.bot:** Alinha as respostas da IA à esquerda com fundo cinza claro.
 
 
-```
+```css
 /* ===== Área de Input ===== */
 footer {
   display: flex;
@@ -264,3 +264,152 @@ footer {
 
 **#send:** Botão de envio com feedback visual de cor ao passar o mouse.
 
+## Modelo do JS
+```js
+document.addEventListener("DOMContentLoaded", function () {
+```
+Garante que todo o código só será executado após o carregamento completo do HTML, evitando erros ao acessar elementos que ainda não existem.
+
+```js
+const chatbotContainer = document.querySelector("main");
+const openBtn = document.getElementById("button");
+const closeBtn = document.getElementById("close");
+const sendBtn = document.getElementById("send");
+const chatbotInput = document.getElementById("prompt");
+const chatbotMessages = document.getElementById("chat");
+```
+Define referências aos elementos do HTML para que possam ser manipulados dinamicamente.
+
+```js
+const API_KEY = "SUA_API_KEY";
+```
+Responsável por autenticar as requisições para a API do Gemini.
+
+```js
+openBtn.addEventListener("click", function () {
+  const isVisible = chatbotContainer.style.display === "flex";
+
+  if (isVisible) {
+    chatbotContainer.style.display = "none";
+  } else {
+    chatbotContainer.style.display = "flex";
+  }
+});
+```
+Implementa um comportamento de **toggle**:
+- Abre o chatbot se estiver fechado
+- Fecha se já estiver aberto
+
+```js
+closeBtn.addEventListener("click", function () {
+  chatbotContainer.style.display = "none";
+  openBtn.style.display = "block";
+  chatbotMessages.innerHTML = "";
+});
+```
+- Fecha o chatbot
+- Mostra o botão principal
+- Limpa todas as mensagens
+
+```js
+sendBtn.addEventListener("click", sendMessage);
+```
+Dispara o envio da mensagem ao clicar no botão.
+
+```js
+chatbotInput.addEventListener("keypress", function (e) {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+});
+```
+Permite enviar mensagens com **Enter** e usar **Shift + Enter** para quebrar linha.
+
+```js
+function sendMessage() {
+  const userMessage = chatbotInput.value.trim();
+```
+Captura o texto digitado e remove espaços desnecessários.
+
+```js
+if (userMessage) {
+  appendMessage("user", userMessage);
+  chatbotInput.value = "";
+  getBotResponse(userMessage);
+}
+```
+- Exibe a mensagem do usuário
+- Limpa o campo
+- Envia para a API
+
+```js
+function appendMessage(sender, message) {
+  const messageElement = document.createElement("div");
+  messageElement.classList.add("message", sender);
+  messageElement.textContent = message;
+```
+Cria uma nova mensagem no chat.
+
+```js
+chatbotMessages.appendChild(messageElement);
+chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+```
+- Adiciona ao container
+- Faz scroll automático
+
+```js
+async function getBotResponse(userMessage) {
+```
+Função assíncrona responsável pela comunicação com o Gemini.
+
+```js
+const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
+```
+Define o endpoint da API com o modelo **Gemini 2.5 Flash**.
+
+```js
+const response = await fetch(url, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+```
+Realiza uma requisição POST com dados em JSON.
+
+```js
+body: JSON.stringify({
+  contents: [
+    {
+      parts: [{ text: userMessage }]
+    }
+  ]
+}),
+```
+Estrutura da mensagem enviada para o modelo.
+
+```js
+const data = await response.json();
+```
+Converte a resposta para JSON.
+
+```js
+const botMessage =
+  data.candidates?.[0]?.content?.parts?.[0]?.text ||
+  "Sem resposta do modelo.";
+```
+Extrai a resposta gerada pela IA.
+
+```js
+appendMessage("bot", botMessage);
+```
+Exibe a resposta no chat.
+
+```js
+} catch (error) {
+  console.error("Erro:", error);
+  appendMessage("bot", "Erro ao responder. Tente novamente.");
+}
+```
+- Exibe erro no console
+- Mostra mensagem amigável ao usuário
