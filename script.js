@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const chatbotInput = document.getElementById("prompt");
     const chatbotMessages = document.getElementById("chat");
   
-    const API_KEY = "AIzaSyCyIJL7BXubzVHVqA_PzoRCyydRtAB0K1M";
+    const API_KEY = "AIzaSyCVmwcJjXzgHX_yAc_clVvL26PzB0WIIX4";
   
     // Abrir ou esconder chatbot
     openBtn.addEventListener("click", function () {
