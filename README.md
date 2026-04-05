@@ -69,20 +69,22 @@ O visual do chat é construído com foco em usabilidade e uma paleta de cores ba
 
 ```css
 * {
-    padding: 0;
-    margin: 0;
-    border: 0
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-family: Arial, sans-serif;
 }
+
 /* ===== Estilo Geral ===== */
 body {
-    font-family: Arial, sans-serif;
-    background-image: url("img/background.png");
-    color: #fff;
+  background-image: url("img/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 ```
-***(Universal)**: Zera as margens e paddings padrão do navegador para garantir um layout consistente.
+***(Universal)**: Remove margens, paddings e bordas padrão, além de definir a fonte global como Arial.
 
-**body:** Define a fonte padrão, uma imagem de fundo para a página e a cor base do texto.
+**body:** Define a imagem de fundo ocupando toda a tela (cover) sem repetição.
 
 
 ```css
@@ -97,14 +99,8 @@ body {
   color: white;
   font-size: 12px;
   font-weight: bold;
-  border: none;
   border-radius: 50%;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 1.2;
   word-break: break-word;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s, background-color 0.2s;
@@ -115,32 +111,33 @@ body {
   transform: scale(1.1);
 }
 ```
-**Posicionamento:** Utiliza position:fixed para ficar sempre visível no canto inferior direito.
+**Posicionamento:** Fixo no canto inferior direito da tela.
 
-**Formato:** Circular (border-radius: 50%) com efeitos de sombra e transição.
+**Formato:** Circular com sombra para destacar como elemento flutuante.
 
-**Interatividade:** Possui um efeito de hover que aumenta levemente o tamanho (scale) e escurece a cor ao passar o mouse.
+**Interatividade:** Ao passar o mouse, aumenta levemente de tamanho e escurece a cor.
 
 
 ```css
+/* ===== Container do Chat ===== */
 main {
   position: fixed;
   bottom: 100px;
   right: 20px;
   width: 400px;
-  height: 700px;
-  background-color: #FFFFFF;
+  height: 550px;
+  background-color: white;
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-  display: flex;
+  display: none;
   flex-direction: column;
-  overflow: hidden;
 }
 ```
-**Layout:** Definido como um container flex em coluna, com altura e largura fixas.
+**Layout:** Container principal do chatbot com tamanho fixo.
 
-**Efeito:** Possui bordas arredondadas e uma sombra intensa para dar profundidade (efeito de janela sobreposta).
+**Comportamento:** Inicialmente escondido (display: none) e organizado em coluna com flexbox.
 
+**Visual:** Bordas arredondadas e sombra para efeito de janela sobreposta.
 
 ```css
 /* ===== Cabeçalho ===== */
@@ -160,15 +157,14 @@ header {
   margin-top: 12px;
   right: 10px;
   background: none;
-  border: none;
   color: white;
   font-size: 32px;
   cursor: pointer;
 }
 ```
-**header:** Estilizado com fundo vermelho e texto em destaque. Define o arredondamento apenas nos cantos superiores.
+**header:** Área superior com destaque visual (vermelho), usada como título do chat.
 
-**#close:** Posicionado de forma absoluta dentro do cabeçalho para atuar como o botão de saída.
+**#close:** Botão de fechar posicionado no canto superior direito do header.
 
 ```css
 /* ===== Área do Chat ===== */
@@ -183,18 +179,26 @@ section {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  color: black;
 }
+```
+**section:** Ocupa o espaço disponível e permite rolagem vertical.
 
+**#chat:** Organiza as mensagens em coluna com espaçamento entre elas.
+
+```css
 /* ===== Mensagens ===== */
 .message {
   padding: 12px;
   border-radius: 8px;
   max-width: 85%;
+  font-size: 16px;
 }
 
 .message.user {
   background-color: #d32f2f;
   align-self: flex-end;
+  color: white;
 }
 
 .message.bot {
@@ -202,14 +206,11 @@ section {
   align-self: flex-start;
 }
 ```
-**section:** Ocupa todo o espaço disponível (flex: 1) e habilita a barra de rolagem vertical (overflow-y: auto).
+**.message:** Define o estilo base das mensagens (tamanho, espaçamento e borda).
 
-**.message:** Estilos comuns para as bolhas de chat.
+**.message.user:** Mensagens do usuário ficam à direita com fundo vermelho.
 
-**.message.user:** Alinha as mensagens do usuário à direita com fundo vermelho.
-
-**.message.bot:** Alinha as respostas da IA à esquerda com fundo cinza claro.
-
+**.message.bot:** Mensagens do bot ficam à esquerda com fundo cinza claro.
 
 ```css
 /* ===== Área de Input ===== */
@@ -218,9 +219,14 @@ footer {
   padding: 10px;
   gap: 10px;
   border-top: 1px solid #E1E3E1;
-  background-color: #FFFFFF;
+  background-color: white;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
+```
+**footer:** Área inferior do chat onde ficam o input e o botão de envio.
 
+```css
 /* ===== Campo de texto ===== */
 #prompt {
   flex: 1;
@@ -229,28 +235,31 @@ footer {
   border-radius: 10px;
   border: 1px solid #E1E3E1;
   background-color: #EDF2FA;
-  color: white;
-  font-family: Arial, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   color: #000;
   justify-content: center;
 }
 
 #prompt::placeholder {
-    color: gray;
+  color: gray;
 }
 
 #prompt:focus {
   border: 2px solid #0B57D0;
   outline: none;
 }
+```
+**#prompt:** Campo de entrada de texto que ocupa todo o espaço disponível.
+- Fundo claro para contraste
+- Placeholder em cinza
+- Destaque azul ao focar
 
+```css
 /* ===== Botão Enviar ===== */
 #send {
   padding: 10px 15px;
   background-color: #d32f2f;
   color: white;
-  border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
@@ -260,9 +269,7 @@ footer {
   background-color: #b71c1c;
 }
 ```
-**#prompt:** Campo de texto que se expande automaticamente. Possui estilização para o placeholder e um realce azul no focus (clique).
-
-**#send:** Botão de envio com feedback visual de cor ao passar o mouse.
+**#send:** Botão de envio com cor vermelha e efeito hover para feedback visual.
 
 ## Modelo do JS
 ```js
