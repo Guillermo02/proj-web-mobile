@@ -9,7 +9,7 @@ A idealização do projeto surgiu de uma percepção recorrente entre os alunos 
 
 Diante desse cenário, propomos o desenvolvimento de um chatbot acadêmico capaz de auxiliar os alunos na resolução de dúvidas frequentes sobre a instituição. A proposta é utilizar a técnica de RAG (Retrieval-Augmented Generation), permitindo que o sistema consulte uma base de informações antes de gerar as respostas, tornando a interação mais precisa, contextualizada e útil para o usuário.
 
-No aspecto técnico, o projeto será desenvolvido utilizado a trindade HTML, CSS e JavaScript, além de Python no backend e na construção da API responsável pela comunicação com o sistema. Dessa forma, o chatbot busca trazer acessibilidade, praticidade e eficiência no contexto acadêmico.
+No aspecto técnico, o projeto será desenvolvido utilizado a trindade HTML, CSS e JavaScript, além de Python no backend e na construção da API responsável pela comunicação com o sistema. Sua API Key é criada no site https://aistudio.google.com/api-keys. Dessa forma, o chatbot busca trazer acessibilidade, praticidade e eficiência no contexto acadêmico.
 
 ### Aplicação real no mercado
 Utilizamos como exemplo de aplicação real de um chatbot, a plataforma de streaming Sky+. Nela, podemos tirar duvidas comuns do serviço, assim como entrar em contato com atendimento humano se necessário.
