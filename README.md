@@ -5,19 +5,37 @@
 - Matheus Mustaro - 10409259
 
 ## Explicação do processo de ideação
-Buscamos montar um chatbot, utilizando técnica de RAG, para alunos tirarem eventuais dúvidas sobre a instituição do Mackenzie. Será utilizado a trindade HTML, CSS e Javascript, assim como python para a montagem do backend e sua API. 
+A idealização do projeto surgiu de uma percepção recorrente entre os alunos da instituição Mackenzie: a dificuldade em encontrar informações de forma rápida, clara e intuitiva nos canais digitais de ensino da universidade. Muitas vezes, mesmo com a existência de campos de busca e páginas de suporte, o estudante não consegue localizar a resposta para sua dúvida com facilidade, o que gera frustração, perda de tempo e, em alguns casos, dependência de terceiros para obter informações simples.
+
+Diante desse cenário, propomos o desenvolvimento de um chatbot acadêmico capaz de auxiliar os alunos na resolução de dúvidas frequentes sobre a instituição. A proposta é utilizar a técnica de RAG (Retrieval-Augmented Generation), permitindo que o sistema consulte uma base de informações antes de gerar as respostas, tornando a interação mais precisa, contextualizada e útil para o usuário.
+
+No aspecto técnico, o projeto será desenvolvido utilizado a trindade HTML, CSS e JavaScript, além de Python no backend e na construção da API responsável pela comunicação com o sistema. Dessa forma, o chatbot busca trazer acessibilidade, praticidade e eficiência no contexto acadêmico.
+
+### Aplicação real no mercado
+Utilizamos como exemplo de aplicação real de um chatbot, a plataforma de streaming Sky+. Nela, podemos tirar duvidas comuns do serviço, assim como entrar em contato com atendimento humano se necessário.
+
+<img width="1882" height="863" alt="image" src="https://github.com/user-attachments/assets/00e649f1-270a-4e24-b152-4eee7f4a347c" />
 
 ## Caráter extensionista
-Para alunos do mackenzie.
+O projeto tem um potencial de impacto real na comunidade acadêmica, além do fim didático. O chatbot busca atender essa necessidade dos estudantes.
+
+### Impacto para a comunidade
+O projeto pode contribuir para melhorar o acesso à informação dentro da instituição, reduzindo dificuldades na busca por orientações acadêmicas, administrativas e operacionais. Oferecendo respostas mais rápidas e objetivas, o chatbot torna a experiência do aluno mais simples e eficiente, dependendo menos de processos manuais ou atendimento presencial.
+
+### Forma de utilização pelos alunos
+Os alunos poderão utilizar a ferramenta como um canal de apoio e de dúvidas frequentes, localizar informações relevantes e obter direcionamentos com facilidade.
+
+### Contribuições além do contexto da sala de aula
+Fora do ambiente acadêmico, o projeto também contribui com experiência prática para demandas reais do mercado, envolvendo o desenvolvimento de uma solução com aplicação concreta, focada no usuário e com potencial de escalabilidade. Além disso, a proposta estimula o uso de tecnologias atuais como a inteligência artificial, promovendo a integração entre conhecimento técnico e impacto social.
 
 ## Imagens do wireframe
 
 ### Protótipo para modelo web
-<img width="1440" height="680" alt="Image" src="https://github.com/user-attachments/assets/430c3baf-b7a1-4ff0-8c7b-0c792d3e99e8" />
+<img width="1919" height="877" alt="image" src="https://github.com/user-attachments/assets/9d707cfb-7efd-4a20-ad24-5ff21fbee4da" />
 
 <hr>
 
-<img width="1440" height="680" alt="Image" src="https://github.com/user-attachments/assets/810fbbfb-6d4f-42a2-8e37-d5e330d8f964" />
+<img width="1917" height="882" alt="image" src="https://github.com/user-attachments/assets/61d34ab9-9a3f-4944-b349-2498b26b7521" />
 
 ---
 ### Protótipo para modelo mobile
@@ -26,12 +44,12 @@ Para alunos do mackenzie.
 ---
 
 ## Modelo do HTML
-```
+```html
 <button id="button">MACK AI</button>
 ```
 Botão externo que atua como o disparador (trigger) para abrir a interface do chat.
 
-```
+```html
 <main>
     <header>🤖 MACK AI</header>
     <button id="close">&times;</button>
@@ -40,7 +58,7 @@ Botão externo que atua como o disparador (trigger) para abrir a interface do ch
 
 **button id="close":** Botão de fechamento da interface.
 
-```
+```html
     <section>
         <div id="chat">
         </div>
@@ -50,7 +68,7 @@ Botão externo que atua como o disparador (trigger) para abrir a interface do ch
 
 **div id="chat":** Container dinâmico destinado a receber e exibir as mensagens enviadas e recebidas.
 
-```
+```html
     <footer>
         <textarea name="prompt" id="prompt" placeholder="Pergunte alguma coisa"></textarea>
         <button id="send">➤</button>
