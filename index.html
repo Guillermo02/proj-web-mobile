@@ -6,21 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOTVS | Portal - TOTVS Educacional</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./config.js"></script>
     <script src="./script.js" defer></script>
 </head>
 
 <body>
     <button id="button">MACK AI</button>
-    <main>
-        <header>🤖 MACK AI</header>
-        <button id="close">&times;</button>
-        <section>
-            <div id="chat">
-            </div>
+
+    <main id="chatbot" class="hidden">
+        <header class="chat-header">
+            <h2>🤖 MACK AI</h2>
+            <button id="close">&times;</button>
+        </header>
+
+        <section class="chat-body">
+            <article id="chat"></article>
         </section>
-        <footer>
-            <textarea name="prompt" id="prompt" placeholder="Pergunte alguma coisa"></textarea>
+
+        <footer class="chat-footer">
+            <textarea id="prompt" placeholder="Pergunte alguma coisa"></textarea>
             <button id="send">➤</button>
         </footer>
     </main>
