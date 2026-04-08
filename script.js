@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Configuração da API
-  const API_KEY = "AIzaSyBZDVwUUdW18F-9pjbVwZ75A05uYl2DxJU";
+  const API_KEY = window.API_KEY || "SUA_API_KEY"
 
   // ===== REGRA DA IA =====
   const SYSTEM_PROMPT = `
