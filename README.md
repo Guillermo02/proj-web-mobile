@@ -1,36 +1,74 @@
 # Projeto de Web Mobile
-### Participantes: 
+
+## Participantes: 
+
 - Cláudio Dias - 10403569
 - Guillermo Kuznietz - 10410134
 - Matheus Mustaro - 10409259
 
+## Tecnologias utilizadas
+
+- HTML5 (estrutura semântica)
+- CSS3 (Flexbox, variáveis CSS e responsividade)
+- JavaScript (ES6+)
+- API Gemini (Google AI)
+
 ## Explicação do processo de ideação
-A idealização do projeto surgiu de uma percepção recorrente entre os alunos da instituição Mackenzie: a dificuldade em encontrar informações de forma rápida, clara e intuitiva nos canais digitais de ensino da universidade. Muitas vezes, mesmo com a existência de campos de busca e páginas de suporte, o estudante não consegue localizar a resposta para sua dúvida com facilidade, o que gera frustração, perda de tempo e, em alguns casos, dependência de terceiros para obter informações simples.
 
-Diante desse cenário, propomos o desenvolvimento de um chatbot acadêmico capaz de auxiliar os alunos na resolução de dúvidas frequentes sobre a instituição. A proposta é utilizar a técnica de RAG (Retrieval-Augmented Generation), permitindo que o sistema consulte uma base de informações antes de gerar as respostas, tornando a interação mais precisa, contextualizada e útil para o usuário.
+O processo de ideação iniciou com um brainstorming entre os integrantes do grupo, com o objetivo de identificar problemas enfrentados por alunos no ambiente acadêmico.
 
-No aspecto técnico, o projeto será desenvolvido utilizado a trindade HTML, CSS e JavaScript, além de Python no backend e na construção da API responsável pela comunicação com o sistema. Sua API Key é criada no site https://aistudio.google.com/api-keys. Dessa forma, o chatbot busca trazer acessibilidade, praticidade e eficiência no contexto acadêmico.
+Foram levantadas algumas possibilidades de solução, como:
+- Um portal informativo com perguntas frequentes (FAQ)
+- Um sistema de busca tradicional para conteúdos institucionais
+- Um chatbot inteligente para atendimento automatizado
 
-### Aplicação real no mercado
-Utilizamos como exemplo de aplicação real de um chatbot, a plataforma de streaming Sky+. Nela, podemos tirar duvidas comuns do serviço, assim como entrar em contato com atendimento humano se necessário.
+Após análise, optamos pelo desenvolvimento de um chatbot, pois ele oferece uma interação mais dinâmica, rápida e acessível ao usuário.
 
-<img width="1882" height="863" alt="image" src="https://github.com/user-attachments/assets/00e649f1-270a-4e24-b152-4eee7f4a347c" />
+Como diferencial, foi proposta a utilização da técnica de RAG (Retrieval-Augmented Generation).
+
+Nesta abordagem, o chatbot pode ser integrado a uma base de dados institucional, permitindo recuperar informações relevantes antes de gerar a resposta, tornando-a mais precisa e contextualizada.
+
+Para fins deste projeto, foi implementada uma estrutura inicial que pode ser expandida futuramente com integração a bases reais do Mackenzie.
+
+A escolha final foi baseada nos seguintes critérios:
+- Facilidade de uso para o aluno
+- Escalabilidade da solução
+- Experiência interativa
+- Aplicabilidade prática no ambiente acadêmico
 
 ## Caráter extensionista
-O projeto tem um potencial de impacto real na comunidade acadêmica, além do fim didático. O chatbot busca atender essa necessidade dos estudantes.
 
-### Impacto para a comunidade
-O projeto pode contribuir para melhorar o acesso à informação dentro da instituição, reduzindo dificuldades na busca por orientações acadêmicas, administrativas e operacionais. Oferecendo respostas mais rápidas e objetivas, o chatbot torna a experiência do aluno mais simples e eficiente, dependendo menos de processos manuais ou atendimento presencial.
+O projeto possui caráter extensionista ao propor uma solução prática que pode ser utilizada por alunos do Mackenzie para esclarecer dúvidas acadêmicas e institucionais de forma rápida e acessível.
 
-### Forma de utilização pelos alunos
-Os alunos poderão utilizar a ferramenta como um canal de apoio e de dúvidas frequentes, localizar informações relevantes e obter direcionamentos com facilidade.
+O chatbot pode ser integrado a portais institucionais ou ambientes virtuais de aprendizagem, atuando como um canal inteligente de suporte automatizado.
 
-### Contribuições além do contexto da sala de aula
-Fora do ambiente acadêmico, o projeto também contribui com experiência prática para demandas reais do mercado, envolvendo o desenvolvimento de uma solução com aplicação concreta, focada no usuário e com potencial de escalabilidade. Além disso, a proposta estimula o uso de tecnologias atuais como a inteligência artificial, promovendo a integração entre conhecimento técnico e impacto social.
+Seu impacto para a comunidade acadêmica inclui:
+- Redução da sobrecarga de atendimentos administrativos
+- Acesso facilitado à informação para novos alunos
+- Apoio contínuo fora do horário de atendimento humano
 
-## Imagens do wireframe
+Além disso, o projeto pode ser expandido futuramente para atender diferentes áreas da instituição, como secretaria, financeiro e suporte acadêmico, ampliando seu alcance e utilidade.
+
+## Wireframe
+
+### Descrição
+
+O wireframe foi desenvolvido com foco em simplicidade, acessibilidade e facilidade de uso.
+
+A interface do chatbot segue uma estrutura padrão de aplicações de mensagem, contendo:
+- Botão flutuante para abertura do chat
+- Cabeçalho com identificação do sistema (MACK AI)
+- Área central para exibição das mensagens (usuário e bot)
+- Campo de entrada com botão de envio
+
+O objetivo do layout é proporcionar uma interação rápida e intuitiva, permitindo que o usuário faça perguntas e receba respostas de forma clara.
+
+---
 
 ### Protótipo para modelo web
+
+O modelo web foi projetado para telas maiores, com o chatbot aparecendo como uma janela flutuante no canto inferior direito da tela.
+
 <img width="1919" height="877" alt="image" src="https://github.com/user-attachments/assets/9d707cfb-7efd-4a20-ad24-5ff21fbee4da" />
 
 <hr>
@@ -39,188 +77,178 @@ Fora do ambiente acadêmico, o projeto também contribui com experiência práti
 
 ---
 ### Protótipo para modelo mobile
+
+No modelo mobile, a interface foi adaptada para melhor aproveitamento da tela, garantindo responsividade e boa experiência do usuário.
+
+O chatbot ocupa uma área maior da tela, facilitando a leitura e interação em dispositivos menores.
+
 <img width="345" height="758" alt="image" src="https://github.com/user-attachments/assets/bb01ac04-7d8d-4413-a888-237d80890a7b" />
 
 <img width="338" height="757" alt="image" src="https://github.com/user-attachments/assets/4931f8d7-d7b8-4d9f-b9bf-c834654f17af" />
 
 ---
 
-## Segurança e Boas Práticas
+## Estrutura do HTML
 
-### Configuração da API Key
-Para a segurança da aplicação, a chave da API fica em um arquivo a parte chamado `config.js` que não é salva no github.
-
----
-
-## Modelo do HTML
 ```html
 <button id="button">MACK AI</button>
 ```
 Botão externo que atua como o disparador (trigger) para abrir a interface do chat.
 
 ```html
-<main>
-    <header>🤖 MACK AI</header>
-    <button id="close">&times;</button>
+<main id="chatbot" class="hidden">
+    <header class="chat-header">
+        <h2>🤖 MACK AI</h2>
+        <button id="close">&times;</button>
+    </header>
 ```
-**header:** Contém a identificação visual (MACK AI) no cabeçalho.
+**header**: Contém a identificação visual do chatbot e o botão de fechamento.
 
-**button id="close":** Botão de fechamento da interface.
+**h2**: Define semanticamente o título da aplicação.
+
+**button id="close"**: Botão responsável por fechar a interface do chat.
 
 ```html
-    <section>
-        <div id="chat">
-        </div>
+    <section class="chat-body">
+        <article id="chat"></article>
     </section>
 ```
-**section:** Define o corpo principal da janela.
+**section**: Define a área principal de conteúdo do chatbot.
 
-**div id="chat":** Container dinâmico destinado a receber e exibir as mensagens enviadas e recebidas.
+**article id="chat"**: Container semântico onde as mensagens são inseridas dinamicamente.
 
 ```html
-    <footer>
-        <textarea name="prompt" id="prompt" placeholder="Pergunte alguma coisa"></textarea>
+    <footer class="chat-footer">
+        <textarea id="prompt" placeholder="Pergunte alguma coisa"></textarea>
         <button id="send">➤</button>
     </footer>
 </main>
 ```
-**footer:** Agrupa os elementos de interação do usuário no rodapé.
+**footer**: Agrupa os elementos de interação do usuário.
 
-**textarea id="prompt":** Campo de entrada de texto para a digitação.
+**textarea id="prompt"**: Campo de entrada de texto.
 
-**button id="send":** Botão de envio (ícone ➤) que dispara a função de processamento da mensagem.
+**button id="send"**: Botão responsável por enviar a mensagem para o chatbot.
 
+## Estilização com CSS
 
-## Modelo do CSS
-O visual do chat é construído com foco em usabilidade e uma paleta de cores baseada no vermelho e branco do mackenzie.
+O visual do chat foi desenvolvido com foco em usabilidade, padronização e manutenção, utilizando variáveis globais para cores e estilos.
+
+```css
+:root {
+  --primary: #d32f2f;
+  --primary-dark: #b71c1c;
+  --gray-light: #E1E3E1;
+  --background-input: #EDF2FA;
+  --white: #ffffff;
+}
+```
+**:root**: Define variáveis globais para padronizar cores e facilitar manutenção do código.
 
 ```css
 * {
   padding: 0;
   margin: 0;
-  border: 0;
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
+```
+**Reset**: Remove estilos padrão do navegador e melhora o controle de layout com `box-sizing`.
 
-/* ===== Estilo Geral ===== */
+```css
 body {
   background-image: url("img/background.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 ```
-***(Universal)**: Remove margens, paddings e bordas padrão, além de definir a fonte global como Arial.
-
-**body:** Define a imagem de fundo ocupando toda a tela (cover) sem repetição.
-
+Define a imagem de fundo ocupando toda a tela.
 
 ```css
-/* ===== Botão Flutuante ===== */
 #button {
   position: fixed;
   bottom: 20px;
   right: 20px;
   width: 70px;
   height: 70px;
-  background-color: #d32f2f;
-  color: white;
+  background-color: var(--primary);
+  color: var(--white);
   font-size: 12px;
   font-weight: bold;
   border-radius: 50%;
   cursor: pointer;
-  word-break: break-word;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-  transition: transform 0.2s, background-color 0.2s;
+  transition: 0.2s;
 }
 
 #button:hover {
-  background-color: #b71c1c;
+  background-color: var(--primary-dark);
   transform: scale(1.1);
 }
 ```
-**Posicionamento:** Fixo no canto inferior direito da tela.
-
-**Formato:** Circular com sombra para destacar como elemento flutuante.
-
-**Interatividade:** Ao passar o mouse, aumenta levemente de tamanho e escurece a cor.
-
+Botão flutuante fixo no canto inferior direito, com efeito de hover para feedback visual.
 
 ```css
-/* ===== Container do Chat ===== */
 main {
   position: fixed;
   bottom: 100px;
   right: 20px;
-  width: 400px;
-  height: 550px;
-  background-color: white;
+  width: 100%;
+  max-width: 400px;
+  height: 80vh;
+  background: var(--white);
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-  display: none;
+  display: flex;
   flex-direction: column;
 }
 
-main.visible {
-  display: flex;
+.hidden {
+  display: none;
 }
 ```
-**main:** Container principal do chatbot com tamanho fixo.
-
-**main.visible:** Classe para controlar visibilidade usando `classList` ao invés de `style.display`.
-
-**Comportamento:** Inicialmente escondido e organizado em coluna com flexbox.
-
-**Visual:** Bordas arredondadas e sombra para efeito de janela sobreposta.
+Container principal do chatbot:
+- Uso de `max-width` e `vh` para responsividade
+- Controle de visibilidade feito via classe `.hidden` (boa prática)
 
 ```css
-/* ===== Cabeçalho ===== */
-header {
-  background-color: #d32f2f;
-  color: white;
+.chat-header {
+  background: var(--primary);
+  color: var(--white);
   padding: 15px;
-  font-size: 24px;
-  font-weight: bold;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+```
+Cabeçalho do chat com layout flexível e alinhamento entre título e botão.
 
-/* ===== Botão Fechar ===== */
+```css
 #close {
-  position: absolute;
-  margin-top: 12px;
-  right: 10px;
   background: none;
-  color: white;
-  font-size: 32px;
+  color: var(--white);
+  font-size: 28px;
   cursor: pointer;
 }
 ```
-**header:** Área superior com destaque visual (vermelho), usada como título do chat.
-
-**#close:** Botão de fechar posicionado no canto superior direito do header.
+Botão de fechar posicionado no header.
 
 ```css
-/* ===== Área do Chat ===== */
-section {
+.chat-body {
   flex: 1;
   padding: 10px;
   overflow-y: auto;
 }
 
-/* ===== Lista de mensagens ===== */
 #chat {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  color: black;
 }
 ```
-**section:** Ocupa o espaço disponível e permite rolagem vertical.
-
-**#chat:** Organiza as mensagens em coluna com espaçamento entre elas.
+Área de mensagens com rolagem vertical e organização em coluna.
 
 ```css
-/* ===== Mensagens ===== */
 .message {
   padding: 12px;
   border-radius: 8px;
@@ -228,53 +256,46 @@ section {
   font-size: 16px;
 }
 
-.message.user {
-  background-color: #d32f2f;
+.user {
+  background: var(--primary);
+  color: var(--white);
   align-self: flex-end;
-  color: white;
 }
 
-.message.bot {
-  background-color: #E1E3E1;
+.bot {
+  background: var(--gray-light);
   align-self: flex-start;
 }
 ```
-**.message:** Define o estilo base das mensagens (tamanho, espaçamento e borda).
-
-**.message.user:** Mensagens do usuário ficam à direita com fundo vermelho.
-
-**.message.bot:** Mensagens do bot ficam à esquerda com fundo cinza claro.
+Estilização das mensagens:
+- Usuário → direita (vermelho)
+- Bot → esquerda (cinza)
 
 ```css
-/* ===== Área de Input ===== */
-footer {
+.chat-footer {
   display: flex;
-  padding: 10px;
   gap: 10px;
-  border-top: 1px solid #E1E3E1;
-  background-color: white;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  padding: 10px;
+  border-top: 1px solid var(--gray-light);
+  background-color: var(--white);
 }
 ```
-**footer:** Área inferior do chat onde ficam o input e o botão de envio.
+Área inferior com campo de entrada e botão.
 
 ```css
-/* ===== Campo de texto ===== */
 #prompt {
   flex: 1;
-  resize: none;
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #E1E3E1;
-  background-color: #EDF2FA;
+  border: 1px solid var(--gray-light);
+  background: var(--background-input);
   font-size: 16px;
-  color: #000;
-  justify-content: center;
+  color: #000000;
+  font-size: 16px;
 }
 
 #prompt::placeholder {
-  color: gray;
+  color: #808080;
 }
 
 #prompt:focus {
@@ -282,30 +303,25 @@ footer {
   outline: none;
 }
 ```
-**#prompt:** Campo de entrada de texto que ocupa todo o espaço disponível.
-- Fundo claro para contraste
-- Placeholder em cinza
-- Destaque azul ao focar
+Campo de texto com destaque visual ao focar.
 
 ```css
-/* ===== Botão Enviar ===== */
 #send {
+  background: var(--primary);
+  color: var(--white);
   padding: 10px 15px;
-  background-color: #d32f2f;
-  color: white;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
 }
 
 #send:hover {
-  background-color: #b71c1c;
+  background: var(--primary-dark);
 }
 ```
-**#send:** Botão de envio com cor vermelha e efeito hover para feedback visual.
+Botão de envio com feedback visual no hover.
 
 ```css
-/* ===== Media Query para dispositivos móveis (até 412px - Samsung Galaxy) ===== */
 @media (max-width: 412px) {
   body {
     background-image: url("img/backgroundMobile.png");
@@ -328,45 +344,99 @@ footer {
   }
 }
 ```
-**@media (max-width: 412px):** Define uma regra de responsividade. Esse bloco de código só será aplicado quando a largura da tela for de até 412 pixels (tamanho de um Samsung Galaxy). A imagem de fundo é alterada por uma que encaixe melhor no modelo, e a proporção do botão de chatbot e aba de conversa são ajustadas para melhor visualização.
+Responsividade para dispositivos móveis, adaptando o tamanho e posicionamento do chatbot.
 
-## Modelo do JS
+## Lógica com JavaScript
+
 ```js
-// Configuração da API
-const API_KEY = window.API_KEY || "SUA_API_KEY";
+document.addEventListener("DOMContentLoaded", () => {
+```
+Garante que o código só será executado após o carregamento completo do HTML, evitando erros ao acessar elementos inexistentes.
 
-// Verifica se os elementos existem antes de adicionar eventos
-const chatbotContainer = document.querySelector("main");
+```js
+const API_KEY = window.API_KEY || "SUA_API_KEY";
+```
+Responsável por autenticar as requisições para a API do Gemini. No projeto atual, a comunicação é feita diretamente via frontend.
+(Em produção, essa chave deve ser protegida via backend.)
+
+```js
+    // ===== REGRA DA IA =====
+  const SYSTEM_PROMPT = `
+  Você é um assistente virtual chamado MACK AI, desenvolvido para auxiliar alunos do Mackenzie.
+
+  REGRAS IMPORTANTES:
+
+  1. Responda apenas com base em informações institucionais do Mackenzie.
+  2. Nunca invente informações. Caso não tenha certeza, diga:
+    "Não tenho essa informação no momento. Consulte o portal oficial do Mackenzie."
+  3. Seja claro, objetivo e educado.
+  4. Priorize respostas curtas e diretas.
+  5. Sempre que possível, oriente o aluno sobre onde encontrar a informação (portal do aluno, secretaria, etc).
+  6. Não responda perguntas fora do contexto acadêmico ou institucional.
+  7. Não gere opiniões pessoais.
+  8. Não forneça informações sensíveis ou confidenciais.
+  9. Caso a pergunta seja ambígua, peça mais detalhes.
+  10. Mantenha linguagem formal e acessível.
+  `;
+```
+O `SYSTEM_PROMPT` define o comportamento do chatbot, garantindo respostas alinhadas ao contexto acadêmico do Mackenzie.
+Ele é enviado junto com a pergunta do usuário para orientar a IA, garantindo:
+- Clareza e objetividade
+- Respostas institucionais
+- Segurança e confiabilidade
+
+```js
+const chatbot = document.getElementById("chatbot");
 const openBtn = document.getElementById("button");
 const closeBtn = document.getElementById("close");
 const sendBtn = document.getElementById("send");
-const chatbotInput = document.getElementById("prompt");
-const chatbotMessages = document.getElementById("chat");
+const input = document.getElementById("prompt");
+const chat = document.getElementById("chat");
+```
+Define referências aos elementos do HTML para manipulação dinâmica.
 
-// Verificações de segurança
-if (!chatbotContainer || !openBtn || !closeBtn || !sendBtn || !chatbotInput || !chatbotMessages) {
+```js
+if (!chatbotContainer || !openBtn || !closeBtn || !sendBtn || !input || !chat) {
   console.error("Elementos necessários do chatbot não foram encontrados no DOM");
-} else {
-  // Inicializar chatbot
-  initializeChatbot();
+  return;
 }
+```
+Verificação de segurança global.
+Evita execução do código caso algum elemento essencial não exista no DOM.
 
-function initializeChatbot() {
-  // Abrir ou esconder chatbot usando classList
-  openBtn.addEventListener("click", function () {
-    chatbotContainer.classList.toggle("visible");
-  });
+```js
+openBtn.addEventListener("click", () => {
+  chatbotContainer.classList.toggle("visible");
+  chatbotContainer.classList.toggle("hidden");
+});
+```
+Controla a exibição do chatbot utilizando `classList`.
 
-  // Fechar chatbot
-  closeBtn.addEventListener("click", function () {
-    chatbotContainer.classList.remove("visible");
-    chatbotMessages.innerHTML = "";
-  });
+Compatível com:
 
-  // Enviar mensagem
-  sendBtn.addEventListener("click", sendMessage);
+- .visible (versão antiga)
+- .hidden (nova abordagem)
 
-  chatbotInput.addEventListener("keypress", function (e) {
+Isso garante maior flexibilidade de integração com diferentes estilos CSS.
+
+
+```js
+closeBtn.addEventListener("click", () => {
+  chatbotContainer.classList.remove("visible");
+  chatbotContainer.classList.add("hidden");
+  chat.innerHTML = "";
+});
+```
+Fecha o chatbot e limpa as mensagens exibidas, garantindo um estado inicial ao reabrir.
+
+```js
+sendBtn.addEventListener("click", sendMessage);
+```
+Dispara o envio da mensagem ao clicar no botão.
+
+```js
+if (input) {
+  input.addEventListener("keypress", (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
@@ -374,68 +444,111 @@ function initializeChatbot() {
   });
 }
 ```
-**Configuração Segura da API:** A chave da API agora vem do `config.js` ou variável de ambiente.
-
-**Verificação de Elementos:** Validação de existência dos elementos DOM antes de manipulação.
-
-**Controle com Classes:** Uso de `classList` ao invés de `style.display` para melhor performance.
-
-**Inicialização Segura:** Função `initializeChatbot()` só executa se todos os elementos existirem.
+Permite enviar mensagens com **Enter** e usar **Shift + Enter** para quebra de linha.
 
 ```js
 function sendMessage() {
-  const userMessage = chatbotInput.value.trim();
-  if (userMessage) {
-    appendMessage("user", userMessage);
-    chatbotInput.value = "";
-    getBotResponse(userMessage);
-  }
-}
+  const userMessage = input.value.trim();
+  if (!userMessage) return;
 
+  appendMessage("user", userMessage);
+  input.value = "";
+
+  getBotResponse(userMessage);
+}
+```
+- Captura o texto digitado
+- Evita envio de mensagens vazias
+- Exibe mensagem do usuário e chama a API
+
+```js
 function appendMessage(sender, message) {
   const messageElement = document.createElement("div");
   messageElement.classList.add("message", sender);
   messageElement.textContent = message;
-  chatbotMessages.appendChild(messageElement);
-  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-}
 
-async function getBotResponse(userMessage) {
-  const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
-
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        contents: [
-          {
-            parts: [{ text: userMessage }]
-          }
-        ]
-      }),
-    });
-
-    const data = await response.json();
-
-    console.log(data);
-
-    const botMessage =
-      data.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "Sem resposta do modelo.";
-
-    appendMessage("bot", botMessage);
-
-  } catch (error) {
-    console.error("Erro:", error);
-    appendMessage("bot", "Erro ao responder. Tente novamente.");
-  }
+  chat.appendChild(messageElement);
+  chat.scrollTop = chat.scrollHeight;
 }
 ```
-**sendMessage()**: Função principal que processa o envio de mensagens. Remove espaços desnecessários, valida se há conteúdo, exibe a mensagem do usuário e solicita resposta da IA.
+Cria e adiciona dinamicamente uma nova mensagem ao chat, com rolagem automática.
 
-**appendMessage(sender, message)**: Cria e adiciona mensagens ao chat dinamicamente. Recebe o tipo de remetente ("user" ou "bot") e o conteúdo da mensagem, criando elementos HTML com classes apropriadas e rolagem automática.
+```js
+async function getBotResponse(userMessage) {
+```
+Função assíncrona responsável pela comunicação com a API.
 
-**getBotResponse(userMessage)**: Função assíncrona que comunica com a API do Gemini. Monta a URL com a chave da API, envia a mensagem do usuário, processa a resposta JSON e exibe a resposta da IA no chat. Inclui tratamento de erros para casos de falha na API.
+```js
+const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
+```
+Define o endpoint da API com o modelo **Gemini 2.5 Flash**.
+
+```js
+try {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      contents: [
+        {
+          parts: [{ text: SYSTEM_PROMPT },
+                  { text: userMessage }
+          ]
+        }
+      ]
+    }),
+  });
+```
+Realiza uma requisição POST enviando a mensagem do usuário no formato JSON.
+
+```js
+const data = await response.json();
+```
+Converte a resposta da API para JSON.
+
+```js
+const botMessage =
+  data.candidates?.[0]?.content?.parts?.[0]?.text ||
+  "Sem resposta do modelo.";
+```
+Extrai a resposta gerada pela IA.
+
+```js
+appendMessage("bot", botMessage);
+```
+Exibe a resposta no chat.
+
+```js
+} catch (error) {
+  console.error("Erro:", error);
+  appendMessage("bot", "Erro ao responder. Tente novamente.");
+}
+```
+Trata possíveis erros, exibindo mensagem amigável ao usuário.
+
+## Regras do Chatbot (IA)
+
+O chatbot foi configurado com um conjunto de regras (system prompt) para garantir que as respostas estejam alinhadas às informações institucionais do Mackenzie.
+
+As principais diretrizes incluem:
+- Responder apenas com base em informações acadêmicas e institucionais
+- Não inventar informações
+- Informar quando não souber a resposta
+- Direcionar o usuário para canais oficiais (portal do aluno, secretaria, etc.)
+- Manter linguagem clara, objetiva e acessível
+- Evitar opiniões pessoais ou conteúdos fora do contexto acadêmico
+
+Essa abordagem reduz o risco de respostas incorretas e aumenta a confiabilidade do sistema.
+
+## Segurança
+
+Para fins acadêmicos, a chave da API foi utilizada diretamente no código frontend.
+
+Em um ambiente de produção, o ideal seria:
+- Utilizar um backend para intermediar as requisições
+- Armazenar a chave em variáveis de ambiente
+- Evitar exposição direta da API no cliente
+
+Essa abordagem garante maior segurança e proteção contra uso indevido da chave.
