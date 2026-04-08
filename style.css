@@ -49,6 +49,10 @@ main {
   flex-direction: column;
 }
 
+main.visible {
+  display: flex;
+}
+
 /* ===== Cabeçalho ===== */
 header {
   background-color: #d32f2f;
@@ -153,4 +157,27 @@ footer {
 
 #send:hover {
   background-color: #b71c1c;
+}
+
+/* ===== Media Query para dispositivos móveis (até 412px) ===== */
+@media (max-width: 412px) {
+  body {
+    background-image: url("img/backgroundMobile.png");
+  }
+
+  #button {
+    width: 60px;
+    height: 60px;
+    font-size: 10px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  main {
+    width: 90vw;
+    height: 80vh;
+    bottom: 70px;
+    right: 5vw;
+    left: auto;
+  }
 }

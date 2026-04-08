@@ -43,6 +43,13 @@ Fora do ambiente acadêmico, o projeto também contribui com experiência práti
 
 ---
 
+## Segurança e Boas Práticas
+
+### Configuração da API Key
+Para a segurança da aplicação, a chave da API fica em um arquivo a parte chamado `config.js` que não é salva no github.
+
+---
+
 ## Modelo do HTML
 ```html
 <button id="button">MACK AI</button>
@@ -150,10 +157,16 @@ main {
   display: none;
   flex-direction: column;
 }
-```
-**Layout:** Container principal do chatbot com tamanho fixo.
 
-**Comportamento:** Inicialmente escondido (display: none) e organizado em coluna com flexbox.
+main.visible {
+  display: flex;
+}
+```
+**main:** Container principal do chatbot com tamanho fixo.
+
+**main.visible:** Classe para controlar visibilidade usando `classList` ao invés de `style.display`.
+
+**Comportamento:** Inicialmente escondido e organizado em coluna com flexbox.
 
 **Visual:** Bordas arredondadas e sombra para efeito de janela sobreposta.
 
@@ -291,150 +304,110 @@ footer {
 
 ## Modelo do JS
 ```js
-document.addEventListener("DOMContentLoaded", function () {
-```
-Garante que todo o código só será executado após o carregamento completo do HTML, evitando erros ao acessar elementos que ainda não existem.
+// Configuração da API
+const API_KEY = window.API_KEY || "SUA_API_KEY";
 
-```js
+// Verifica se os elementos existem antes de adicionar eventos
 const chatbotContainer = document.querySelector("main");
 const openBtn = document.getElementById("button");
 const closeBtn = document.getElementById("close");
 const sendBtn = document.getElementById("send");
 const chatbotInput = document.getElementById("prompt");
 const chatbotMessages = document.getElementById("chat");
-```
-Define referências aos elementos do HTML para que possam ser manipulados dinamicamente.
 
-```js
-const API_KEY = "SUA_API_KEY";
-```
-Responsável por autenticar as requisições para a API do Gemini.
+// Verificações de segurança
+if (!chatbotContainer || !openBtn || !closeBtn || !sendBtn || !chatbotInput || !chatbotMessages) {
+  console.error("Elementos necessários do chatbot não foram encontrados no DOM");
+} else {
+  // Inicializar chatbot
+  initializeChatbot();
+}
 
-```js
-openBtn.addEventListener("click", function () {
-  const isVisible = chatbotContainer.style.display === "flex";
+function initializeChatbot() {
+  // Abrir ou esconder chatbot usando classList
+  openBtn.addEventListener("click", function () {
+    chatbotContainer.classList.toggle("visible");
+  });
 
-  if (isVisible) {
-    chatbotContainer.style.display = "none";
-  } else {
-    chatbotContainer.style.display = "flex";
-  }
-});
-```
-Implementa um comportamento de **toggle**:
-- Abre o chatbot se estiver fechado
-- Fecha se já estiver aberto
+  // Fechar chatbot
+  closeBtn.addEventListener("click", function () {
+    chatbotContainer.classList.remove("visible");
+    chatbotMessages.innerHTML = "";
+  });
 
-```js
-closeBtn.addEventListener("click", function () {
-  chatbotContainer.style.display = "none";
-  openBtn.style.display = "block";
-  chatbotMessages.innerHTML = "";
-});
-```
-- Fecha o chatbot
-- Mostra o botão principal
-- Limpa todas as mensagens
+  // Enviar mensagem
+  sendBtn.addEventListener("click", sendMessage);
 
-```js
-sendBtn.addEventListener("click", sendMessage);
+  chatbotInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+}
 ```
-Dispara o envio da mensagem ao clicar no botão.
+**Configuração Segura da API:** A chave da API agora vem do `config.js` ou variável de ambiente.
 
-```js
-chatbotInput.addEventListener("keypress", function (e) {
-  if (e.key === "Enter" && !e.shiftKey) {
-    e.preventDefault();
-    sendMessage();
-  }
-});
-```
-Permite enviar mensagens com **Enter** e usar **Shift + Enter** para quebrar linha.
+**Verificação de Elementos:** Validação de existência dos elementos DOM antes de manipulação.
+
+**Controle com Classes:** Uso de `classList` ao invés de `style.display` para melhor performance.
+
+**Inicialização Segura:** Função `initializeChatbot()` só executa se todos os elementos existirem.
 
 ```js
 function sendMessage() {
   const userMessage = chatbotInput.value.trim();
-```
-Captura o texto digitado e remove espaços desnecessários.
-
-```js
-if (userMessage) {
-  appendMessage("user", userMessage);
-  chatbotInput.value = "";
-  getBotResponse(userMessage);
+  if (userMessage) {
+    appendMessage("user", userMessage);
+    chatbotInput.value = "";
+    getBotResponse(userMessage);
+  }
 }
-```
-- Exibe a mensagem do usuário
-- Limpa o campo
-- Envia para a API
 
-```js
 function appendMessage(sender, message) {
   const messageElement = document.createElement("div");
   messageElement.classList.add("message", sender);
   messageElement.textContent = message;
-```
-Cria uma nova mensagem no chat.
+  chatbotMessages.appendChild(messageElement);
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+}
 
-```js
-chatbotMessages.appendChild(messageElement);
-chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-```
-- Adiciona ao container
-- Faz scroll automático
-
-```js
 async function getBotResponse(userMessage) {
-```
-Função assíncrona responsável pela comunicação com o Gemini.
+  const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
-```js
-const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
-```
-Define o endpoint da API com o modelo **Gemini 2.5 Flash**.
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [{ text: userMessage }]
+          }
+        ]
+      }),
+    });
 
-```js
-const response = await fetch(url, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-```
-Realiza uma requisição POST com dados em JSON.
+    const data = await response.json();
 
-```js
-body: JSON.stringify({
-  contents: [
-    {
-      parts: [{ text: userMessage }]
-    }
-  ]
-}),
-```
-Estrutura da mensagem enviada para o modelo.
+    console.log(data);
 
-```js
-const data = await response.json();
-```
-Converte a resposta para JSON.
+    const botMessage =
+      data.candidates?.[0]?.content?.parts?.[0]?.text ||
+      "Sem resposta do modelo.";
 
-```js
-const botMessage =
-  data.candidates?.[0]?.content?.parts?.[0]?.text ||
-  "Sem resposta do modelo.";
-```
-Extrai a resposta gerada pela IA.
+    appendMessage("bot", botMessage);
 
-```js
-appendMessage("bot", botMessage);
-```
-Exibe a resposta no chat.
-
-```js
-} catch (error) {
-  console.error("Erro:", error);
-  appendMessage("bot", "Erro ao responder. Tente novamente.");
+  } catch (error) {
+    console.error("Erro:", error);
+    appendMessage("bot", "Erro ao responder. Tente novamente.");
+  }
 }
 ```
-- Exibe erro no console
-- Mostra mensagem amigável ao usuário
+**sendMessage()**: Função principal que processa o envio de mensagens. Remove espaços desnecessários, valida se há conteúdo, exibe a mensagem do usuário e solicita resposta da IA.
+
+**appendMessage(sender, message)**: Cria e adiciona mensagens ao chat dinamicamente. Recebe o tipo de remetente ("user" ou "bot") e o conteúdo da mensagem, criando elementos HTML com classes apropriadas e rolagem automática.
+
+**getBotResponse(userMessage)**: Função assíncrona que comunica com a API do Gemini. Monta a URL com a chave da API, envia a mensagem do usuário, processa a resposta JSON e exibe a resposta da IA no chat. Inclui tratamento de erros para casos de falha na API.
