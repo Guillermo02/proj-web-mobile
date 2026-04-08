@@ -1,5 +1,5 @@
-// Configuração da API - Em produção, use variáveis de ambiente ou backend
-const API_KEY = window.API_KEY || "SUA_API_KEY"; // Substitua por uma variável de ambiente segura
+// Configuração da API
+const API_KEY = window.API_KEY || "SUA_API_KEY";
 
 // Verificar se os elementos existem antes de adicionar eventos
 const chatbotContainer = document.querySelector("main");
