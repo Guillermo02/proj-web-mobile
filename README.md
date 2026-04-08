@@ -39,7 +39,9 @@ Fora do ambiente acadêmico, o projeto também contribui com experiência práti
 
 ---
 ### Protótipo para modelo mobile
-<img width="434" height="560" alt="image" src="https://github.com/user-attachments/assets/7b604afa-e46a-47f8-a05c-a16b89d6ea67" />
+<img width="345" height="758" alt="image" src="https://github.com/user-attachments/assets/bb01ac04-7d8d-4413-a888-237d80890a7b" />
+
+<img width="338" height="757" alt="image" src="https://github.com/user-attachments/assets/4931f8d7-d7b8-4d9f-b9bf-c834654f17af" />
 
 ---
 
@@ -288,6 +290,32 @@ footer {
 }
 ```
 **#send:** Botão de envio com cor vermelha e efeito hover para feedback visual.
+
+```css
+/* ===== Media Query para dispositivos móveis (até 412px - Samsung Galaxy) ===== */
+@media (max-width: 412px) {
+  body {
+    background-image: url("img/backgroundMobile.png");
+  }
+
+  #button {
+    width: 60px;
+    height: 60px;
+    font-size: 10px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  main {
+    width: 90vw;
+    height: 80vh;
+    bottom: 70px;
+    right: 5vw;
+    left: auto;
+  }
+}
+```
+**@media (max-width: 412px):** Define uma regra de responsividade. Esse bloco de código só será aplicado quando a largura da tela for de até 412 pixels (tamanho de um Samsung Galaxy). A imagem de fundo é alterada por uma que encaixe melhor no modelo, e a proporção do botão de chatbot e aba de conversa são ajustadas para melhor visualização.
 
 ## Modelo do JS
 ```js
