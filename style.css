@@ -1,8 +1,18 @@
+:root {
+  --primary: #d32f2f;
+  --primary-dark: #b71c1c;
+  --gray-light: #e1e3e1;
+  --background-input: #edf2fa;
+  --white: #ffffff;
+}
+
+/* Reset */
 * {
   padding: 0;
   margin: 0;
-  border: 0;
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
+  border: 0;
 }
 
 /* ===== Estilo Geral ===== */
@@ -12,86 +22,80 @@ body {
   background-size: cover;
 }
 
-/* ===== Botão Flutuante ===== */
+/* ===== Botão ===== */
 #button {
   position: fixed;
   bottom: 20px;
   right: 20px;
   width: 70px;
   height: 70px;
-  background-color: #d32f2f;
-  color: white;
+  background-color: var(--primary);
+  color: var(--white);
   font-size: 12px;
   font-weight: bold;
   border-radius: 50%;
   cursor: pointer;
-  word-break: break-word;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-  transition: transform 0.2s, background-color 0.2s;
+  transition: 0.2s;
 }
 
 #button:hover {
-  background-color: #b71c1c;
+  background-color: var(--primary-dark);
   transform: scale(1.1);
 }
 
-/* ===== Container do Chat ===== */
+/* ===== Chat ===== */
 main {
   position: fixed;
   bottom: 100px;
   right: 20px;
-  width: 400px;
-  height: 550px;
-  background-color: white;
+  width: 100%;
+  max-width: 400px;
+  height: 80vh;
+  background: var(--white);
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-  display: none;
+  display: flex;
   flex-direction: column;
 }
 
-main.visible {
-  display: flex;
+/* Classe para controle via JS */
+.hidden {
+  display: none;
 }
 
-/* ===== Cabeçalho ===== */
-header {
-  background-color: #d32f2f;
-  color: white;
+/* ===== Header ===== */
+.chat-header {
+  background: var(--primary);
+  color: var(--white);
   padding: 15px;
-  font-size: 24px;
-  font-weight: bold;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* ===== Botão Fechar ===== */
+/* Botão fechar */
 #close {
-  position: absolute;
-  margin-top: 12px;
-  right: 10px;
   background: none;
-  border: none;
-  color: white;
-  font-size: 32px;
+  color: var(--white);
+  font-size: 28px;
   cursor: pointer;
 }
 
-/* ===== Área do Chat ===== */
-section {
+/* ===== Corpo ===== */
+.chat-body {
   flex: 1;
   padding: 10px;
   overflow-y: auto;
 }
 
-/* ===== Lista de mensagens ===== */
+/* ===== Mensagens ===== */
 #chat {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  color: black;
 }
 
-/* ===== Mensagens ===== */
 .message {
   padding: 12px;
   border-radius: 8px;
@@ -99,44 +103,40 @@ section {
   font-size: 16px;
 }
 
-.message.user {
-  background-color: #d32f2f;
+.user {
+  background: var(--primary);
+  color: var(--white);
   align-self: flex-end;
-  color: white;
 }
 
-.message.bot {
-  background-color: #E1E3E1;
+.bot {
+  background: var(--gray-light);
   align-self: flex-start;
 }
 
-/* ===== Área de Input ===== */
-footer {
+/* ===== Footer ===== */
+.chat-footer {
   display: flex;
-  padding: 10px;
   gap: 10px;
-  border-top: 1px solid #E1E3E1;
-  background-color: white;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  padding: 10px;
+  border-top: 1px solid var(--gray-light);
+  background-color: var(--white);
 }
 
-/* ===== Campo de texto ===== */
+/* ===== Input ===== */
 #prompt {
   flex: 1;
   resize: none;
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #E1E3E1;
-  background-color: #EDF2FA;
-  color: white;
+  border: 1px solid var(--gray-light);
+  background: var(--background-input);
+  color: #000000;
   font-size: 16px;
-  color: #000;
-  justify-content: center;
 }
 
 #prompt::placeholder {
-    color: gray;
+  color: #808080;
 }
 
 #prompt:focus {
@@ -146,17 +146,16 @@ footer {
 
 /* ===== Botão Enviar ===== */
 #send {
+  background: var(--primary);
+  color: var(--white);
   padding: 10px 15px;
-  background-color: #d32f2f;
-  color: white;
-  border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
 }
 
 #send:hover {
-  background-color: #b71c1c;
+  background: var(--primary-dark);
 }
 
 /* ===== Media Query para dispositivos móveis (até 412px) ===== */
