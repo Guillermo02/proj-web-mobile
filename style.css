@@ -19,7 +19,6 @@
 body {
   background-image: url("img/background.png");
   background-repeat: no-repeat;
-  background-size: cover;
 }
 
 /* ===== Botão ===== */
@@ -162,6 +161,7 @@ main {
 @media (max-width: 412px) {
   body {
     background-image: url("img/backgroundMobile.png");
+    background-size: cover;
   }
 
   #button {
