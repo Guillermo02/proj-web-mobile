@@ -49,6 +49,15 @@ Seu impacto para a comunidade acadêmica inclui:
 
 Além disso, o projeto pode ser expandido futuramente para atender diferentes áreas da instituição, como secretaria, financeiro e suporte acadêmico, ampliando seu alcance e utilidade.
 
+---
+
+## Aplicação real no mercado
+Utilizamos como exemplo de aplicação real de um chatbot, a plataforma de streaming Sky+. Nela, podemos tirar duvidas comuns do serviço, assim como entrar em contato com atendimento humano se necessário.
+
+<img width="1882" height="863" alt="image" src="https://github.com/user-attachments/assets/00e649f1-270a-4e24-b152-4eee7f4a347c" />
+
+---
+
 ## Wireframe
 
 ### Descrição
