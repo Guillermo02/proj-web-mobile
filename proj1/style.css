@@ -1,0 +1,182 @@
+:root {
+  --primary: #d32f2f;
+  --primary-dark: #b71c1c;
+  --gray-light: #e1e3e1;
+  --background-input: #edf2fa;
+  --white: #ffffff;
+}
+
+/* Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  border: 0;
+}
+
+/* ===== Estilo Geral ===== */
+body {
+  background-image: url("img/background.png");
+  background-repeat: no-repeat;
+}
+
+/* ===== Botão ===== */
+#button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+  background-color: var(--primary);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  transition: 0.2s;
+}
+
+#button:hover {
+  background-color: var(--primary-dark);
+  transform: scale(1.1);
+}
+
+/* ===== Chat ===== */
+main {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 100%;
+  max-width: 400px;
+  height: 80vh;
+  background: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Classe para controle via JS */
+.hidden {
+  display: none;
+}
+
+/* ===== Header ===== */
+.chat-header {
+  background: var(--primary);
+  color: var(--white);
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Botão fechar */
+#close {
+  background: none;
+  color: var(--white);
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* ===== Corpo ===== */
+.chat-body {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+/* ===== Mensagens ===== */
+#chat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  padding: 12px;
+  border-radius: 8px;
+  max-width: 85%;
+  font-size: 16px;
+}
+
+.user {
+  background: var(--primary);
+  color: var(--white);
+  align-self: flex-end;
+}
+
+.bot {
+  background: var(--gray-light);
+  align-self: flex-start;
+}
+
+/* ===== Footer ===== */
+.chat-footer {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-top: 1px solid var(--gray-light);
+  background-color: var(--white);
+}
+
+/* ===== Input ===== */
+#prompt {
+  flex: 1;
+  resize: none;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--gray-light);
+  background: var(--background-input);
+  color: #000000;
+  font-size: 16px;
+}
+
+#prompt::placeholder {
+  color: #808080;
+}
+
+#prompt:focus {
+  border: 2px solid #0B57D0;
+  outline: none;
+}
+
+/* ===== Botão Enviar ===== */
+#send {
+  background: var(--primary);
+  color: var(--white);
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#send:hover {
+  background: var(--primary-dark);
+}
+
+/* ===== Media Query para dispositivos móveis (até 412px) ===== */
+@media (max-width: 412px) {
+  body {
+    background-image: url("img/backgroundMobile.png");
+    background-size: cover;
+  }
+
+  #button {
+    width: 60px;
+    height: 60px;
+    font-size: 10px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  main {
+    width: 90vw;
+    height: 80vh;
+    bottom: 70px;
+    right: 5vw;
+    left: auto;
+  }
+}
